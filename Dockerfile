@@ -1,5 +1,11 @@
-docker run -d \
-    --name=firefox \
-    -p 8080:5800 \
-    -v /docker/appdata/firefox:/config:rw \
-    jlesage/firefox
+FROM jlesage/firefox
+
+ENV APP_NICENESS=0
+ENV DISPLAY_WIDTH=1280
+ENV DISPLAY_HEIGHT=768
+ENV VNC_PASSWORD=1234
+ENV HTTP_PORT=8080
+
+EXPOSE 8080
+
+CMD ["/init"]
