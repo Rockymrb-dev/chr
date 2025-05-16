@@ -1,8 +1,6 @@
-FROM jigsage/firefox
+FROM selenium/standalone-firefox:latest
 
-# Render listens on PORT env var, so expose that
 ENV PORT=8080
 EXPOSE 8080
 
-# Dummy command - real use-case needed here
-CMD ["tail", "-f", "/dev/null"]
+CMD ["sh", "-c", "while true; do echo 'Firefox container running'; sleep 3600; done"]
